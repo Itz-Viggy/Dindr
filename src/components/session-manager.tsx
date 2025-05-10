@@ -157,20 +157,20 @@ export function SessionManager({ onSessionStart, onMatchFound }: SessionManagerP
         </div>
 
         {!sessionId ? (
-          <div className="space-y-4">
+          <div className="space-y-0">
             <Button
               onClick={generateSessionId}
               className="w-full"
               disabled={isCreating}
             >
-              {isCreating ? 'Creating Session...' : 'Create New Session'}
+              {isCreating ? 'Creating Session...' : <span className="text-lg font-medium">Create New Session</span>}
             </Button>
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
+            <div className="relative my-8">
+              <div className="absolute inset-0 flex items-start">
+                <span className="w-full border-t border-gray-200" />
               </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">
+              <div className="relative flex justify-center pt-8">
+                <span className="bg-background px-2 text-xs uppercase text-muted-foreground">
                   Or join existing
                 </span>
               </div>
@@ -218,4 +218,4 @@ export function SessionManager({ onSessionStart, onMatchFound }: SessionManagerP
       </div>
     </Card>
   );
-} 
+}

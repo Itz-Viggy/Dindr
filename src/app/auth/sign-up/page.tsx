@@ -29,26 +29,31 @@ export default function SignUpPage() {
         email,
         password,
         options: {
-          data: {
-            name,
-          },
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
         },
       });
 
-      if (error) throw error;
+      if (error) {
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
+        return;
+      }
 
       toast({
-        title: "Account created!",
-        description: "Please sign in with your new account.",
+        title: "Success",
+        description: "Please check your email to verify your account.",
       });
-
-      router.push("/auth/sign-in");
-    } catch (error: any) {
+      router.push('/auth/sign-in');
+    } catch (error) {
       toast({
         title: "Error",
-        description: error.message,
+        description: "An unexpected error occurred",
         variant: "destructive",
       });
+      console.error('Error:', error);
     } finally {
       setLoading(false);
     }

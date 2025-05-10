@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "../../components/ui/toaster";
 
 import type { ReactNode } from 'react'
 const geistSans = Geist({
@@ -15,12 +16,16 @@ const geistMono = Geist_Mono({
 
 
 
-export const metadata = { title: 'Dindr' }
+export const metadata: Metadata = {
+  title: "Dindr - Restaurant Matching App",
+  description: "Find restaurants that match your preferences",
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>{children}</body>
+      <Toaster />
     </html>
   )
 }

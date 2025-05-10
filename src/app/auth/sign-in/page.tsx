@@ -19,7 +19,7 @@ export default function SignInPage() {
   const { toast } = useToast();
   const supabase = createClient();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
@@ -29,21 +29,23 @@ export default function SignInPage() {
         password,
       });
 
-      if (error) throw error;
+      if (error) {
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
+        return;
+      }
 
-      toast({
-        title: "Welcome back!",
-        description: "You've successfully signed in.",
-      });
-
-      router.push("/dashboard");
-      router.refresh();
-    } catch (error: any) {
+      router.push('/dashboard');
+    } catch (error) {
       toast({
         title: "Error",
-        description: error.message,
+        description: "An unexpected error occurred",
         variant: "destructive",
       });
+      console.error('Error:', error);
     } finally {
       setLoading(false);
     }
@@ -58,7 +60,7 @@ export default function SignInPage() {
             Enter your email and password to access your account
           </CardDescription>
         </CardHeader>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSignIn}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
