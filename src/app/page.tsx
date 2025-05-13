@@ -12,8 +12,11 @@ export default function Home() {
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
           Welcome to Dindr
         </h1>
-        <p className="text-xl text-muted-foreground mb-8 max-w-md">
-        Tired of the 'I don't know, you pick' loop? Let Dindr decide for you. Swipe. Match. Eat.
+        <p className="text-xl text-muted-foreground mb-8 max-w-md leading-relaxed">
+          Tired of the <span className="italic font-medium text-primary">'I don't know, you pick'</span> loop? 
+          <br className="hidden md:block" />
+          Let <span className="font-bold">Dindr</span> decide for you. 
+          <span className="block mt-2 font-semibold">Swipe. Match. Eat.</span>
         </p>
         <div className="space-x-4">
           <Button asChild variant="outline" size="lg">
