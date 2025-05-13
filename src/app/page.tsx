@@ -13,7 +13,7 @@ export default function Home() {
           Welcome to Dindr
         </h1>
         <p className="text-xl text-muted-foreground mb-8 max-w-md">
-        Swipe. Match. Eat.
+        Tired of the 'I don't know, you pick' loop? Let Dindr decide for you. Swipe. Match. Eat.
         </p>
         <div className="space-x-4">
           <Button asChild variant="outline" size="lg">
