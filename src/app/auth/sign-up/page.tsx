@@ -159,7 +159,7 @@ export default function SignUpPage() {
             <CardFooter className="flex flex-col space-y-4">
               <Button
                 type="submit"
-                className="w-full bg-white text-purple-600 hover:bg-gray-100 font-semibold py-3 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 h-12"
+                className="w-full bg-white text-purple-600 hover:bg-gray-100 font-semibold py-3 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 h-12 mb-8"
                 disabled={loading}
               >
                 {loading ? "Creating Account..." : "Create Account"}
@@ -167,10 +167,10 @@ export default function SignUpPage() {
 
               <div className="relative w-full">
                 <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t border-white/30" />
+                  <span className="w-full border-t border-white/30 mb-8" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 px-4 text-white/80">
+                  <span className="font-bold px-4 text-white/100">
                     Already have an account?
                   </span>
                 </div>
