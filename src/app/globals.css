@@ -1,3 +1,5 @@
+
+
 /* src/app/globals.css */
 
 /* 1. Load all of Tailwind (preflight + components + utilities) */
@@ -8,6 +10,35 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --font-inter: var(--font-inter);
+  --font-caveat: var(--font-caveat);
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out both;
 }
 
 /* 3. Your HSL theme variables + overrides in one utilities layer */
@@ -80,3 +111,5 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+
