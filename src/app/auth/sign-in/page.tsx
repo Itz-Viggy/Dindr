@@ -178,7 +178,7 @@ export default function SignInPage() {
                     <span className="w-full border-t border-white/30" />
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 px-4 text-white/1000">
+                    <span className=" px-4 text-white/1000">
                       Don't have an account?
                     </span>
                   </div>
@@ -189,7 +189,7 @@ export default function SignInPage() {
                   variant="outline"
                   className="w-full border-2 border-white/50 text-white hover:bg-white hover:text-purple-600 font-semibold py-3 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 bg-transparent h-12"
                 >
-                  <Link href="/sign-up">Create Account</Link>
+                  <Link href="/auth/sign-up">Create Account</Link>
                 </Button>
               </CardFooter>
             </form>
