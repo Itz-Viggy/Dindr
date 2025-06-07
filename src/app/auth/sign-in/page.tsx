@@ -163,7 +163,7 @@ export default function SignInPage() {
                 >
                   {loading ? "Signing in..." : "Sign In"}
                 </Button>
-
+              {/*
                 <div className="text-center">
                   <Link
                     href="/forgot-password"
@@ -172,7 +172,7 @@ export default function SignInPage() {
                     Forgot your password?
                   </Link>
                 </div>
-
+              */}
                 <div className="relative">
                   <div className="absolute inset-0 flex items-center">
                     <span className="w-full border-t border-white/30" />
