@@ -104,7 +104,7 @@ export default function SignUpPage() {
           <CardHeader className="text-center space-y-1">
             <CardTitle className="text-2xl font-bold text-white">Create Account</CardTitle>
             <CardDescription className="text-white/80">
-              Start your culinary journey with us
+              Start your dinning journey with us
             </CardDescription>
           </CardHeader>
           <form onSubmit={handleSubmit}>
