@@ -171,7 +171,7 @@ export default function DashboardPage() {
             </Card>
 
             <Card
-              onClick={() => setShowGroupDiningSearch(true)}
+              onClick={() => setShowGroupDiningSearch(prev => !prev)}
               className="backdrop-blur-lg bg-white/10 border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
               <CardContent className="p-6 text-center">
                 <div className="text-4xl mb-3">👥</div>
