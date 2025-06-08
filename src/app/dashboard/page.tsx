@@ -19,6 +19,8 @@ export default function DashboardPage() {
   const [isSearching, setIsSearching] = useState(false);
   const router = useRouter();
   const supabase = createClient();
+  const [showGroupDiningSearch, setShowGroupDiningSearch] = useState(false);
+
 
   useEffect(() => {
     const checkUser = async () => {
@@ -140,9 +142,21 @@ export default function DashboardPage() {
                 </Button>
               </div>
             </CardHeader>
-            <CardContent>
-              <RestaurantSearch onSearchStart={() => setIsSearching(true)} onSearchEnd={() => setIsSearching(false)} />
-            </CardContent>
+            {showGroupDiningSearch && (
+  <Card>
+    <CardHeader>
+      <CardTitle className="text-2xl font-bold text-white">Find Group Dining Spots</CardTitle>
+      <CardDescription className="text-white/80">Tailored for larger parties</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <RestaurantSearch
+        onSearchStart={() => setIsSearching(true)}
+        onSearchEnd={() => setIsSearching(false)}
+      />
+    </CardContent>
+  </Card>
+)}
+
           </Card>
 
           <div className="grid grid-cols-1 sm:grid-cols-2  gap-4">
@@ -156,13 +170,16 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
 
-            <Card className="backdrop-blur-lg bg-white/10 border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
+            <Card
+              onClick={() => setShowGroupDiningSearch(true)}
+              className="backdrop-blur-lg bg-white/10 border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
               <CardContent className="p-6 text-center">
                 <div className="text-4xl mb-3">👥</div>
                 <h3 className="text-lg font-bold text-white mb-2">Group Dining</h3>
                 <p className="text-white/80 text-sm">Plan meals with friends</p>
               </CardContent>
             </Card>
+
           </div>
         </div>
       </div>
