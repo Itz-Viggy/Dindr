@@ -145,8 +145,16 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 align-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2  gap-4">
             
+
+            <Card className="backdrop-blur-lg bg-white/10 border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
+              <CardContent className="p-6 text-center">
+                <div className="text-4xl mb-3">⭐</div>
+                <h3 className="text-lg font-bold text-white mb-2">Your Favorites</h3>
+                <p className="text-white/80 text-sm">Revisit places you loved (COMING SOON!)</p>
+              </CardContent>
+            </Card>
 
             <Card className="backdrop-blur-lg bg-white/10 border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
               <CardContent className="p-6 text-center">
