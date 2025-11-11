@@ -44,8 +44,15 @@ export async function registerRestaurantRoutes(app: FastifyInstance) {
 
       request.log.info({ zipcode, radius }, 'Searching restaurants');
 
-      const restaurants = await searchRestaurants(zipcode, radius);
-      return reply.send(restaurants);
+      try {
+        const restaurants = await searchRestaurants(zipcode, radius);
+        return reply.send(restaurants);
+      } catch (error) {
+        request.log.error({ err: error }, 'Failed to search restaurants');
+        return reply
+          .status(500)
+          .send({ error: 'Failed to search restaurants', message: error instanceof Error ? error.message : String(error) });
+      }
     }
   );
 
