@@ -143,8 +143,13 @@ async function updateRestaurant(sessionId: string, restaurant: Restaurant) {
     throw Object.assign(new Error('Session has expired'), { status: 410 });
   }
 
-  const restaurants = [...(currentSession.restaurants ?? [])];
-  const index = restaurants.findIndex((r: Restaurant & { likes: number }) => r.id === restaurant.id);
+  const restaurants: Array<Restaurant & { likes: number }> = [
+    ...(currentSession.restaurants ?? []).map((r: Restaurant) => ({
+      ...r,
+      likes: typeof (r as any).likes === 'number' ? (r as any).likes : 0,
+    })),
+  ];
+  const index = restaurants.findIndex((r) => r.id === restaurant.id);
 
   if (index === -1) {
     restaurants.push({ ...restaurant, likes: 1 });
