@@ -21,18 +21,35 @@ const requestSchema = z.object({
   restaurant: restaurantSchema.optional(),
 });
 
+// Define a generic response schema for session actions
+const sessionResponseSchema = z.object({
+  success: z.boolean(),
+  data: z.any().optional(),
+  error: z.string().optional(),
+});
+
 export async function registerSessionRoutes(app: FastifyInstance) {
-  app.post<{ Body: z.infer<typeof requestSchema>; Reply: any }>(
+  app.post<{ Body: z.infer<typeof requestSchema>; Reply: z.infer<typeof sessionResponseSchema> }>(
     '/sessions',
     {
       schema: {
         body: requestSchema,
+        response: {
+          200: sessionResponseSchema,
+          500: z.object({
+            error: z.string(),
+          }),
+        },
       },
     },
     async (request, reply) => {
       try {
         const result = await handleSessionAction(request.body);
-        return reply.send(result);
+        // Ensure the response matches the schema
+        return reply.send({
+          success: true,
+          data: result,
+        });
       } catch (error) {
         const status = typeof (error as any)?.status === 'number' ? (error as any).status : 500;
         request.log.error({ err: error }, 'Session action failed');
