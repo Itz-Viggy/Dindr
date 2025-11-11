@@ -1,6 +1,6 @@
 'use client';
 
-import { Restaurant } from '@/types/restaurant';
+import type { Restaurant } from '@dindr/contracts';
 import { Card } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
 import { ThumbsUp, ThumbsDown, MapPin, Star, DollarSign } from 'lucide-react';

@@ -1,4 +1,4 @@
-import { Location } from '@/types/restaurant';
+import type { Location } from '@dindr/contracts';
 
 // Calculate distance between two points using the Haversine formula
 export function calculateDistance(

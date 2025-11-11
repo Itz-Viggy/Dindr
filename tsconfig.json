@@ -4,7 +4,13 @@
     "paths": {
       "@/*": [
         "src/*"
-      ] // ← map "@/foo" → "./src/foo"
+      ], // ← map "@/foo" → "./src/foo"
+      "@dindr/contracts": [
+        "packages/contracts/src/index.ts"
+      ],
+      "@dindr/contracts/*": [
+        "packages/contracts/src/*"
+      ]
     },
     "target": "ES2017",
     "lib": [

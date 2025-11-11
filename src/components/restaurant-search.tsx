@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Card } from '../../components/ui/card';
 import { Slider } from '../../components/ui/slider';
-import { Restaurant } from '@/types/restaurant';
+import type { Restaurant } from '@dindr/contracts';
 import { Button } from '../../components/ui/button';
 import { useToast } from '../../hooks/use-toast';
 import { Search, AlertCircle } from 'lucide-react';
