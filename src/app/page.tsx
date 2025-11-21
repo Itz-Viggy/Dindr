@@ -64,8 +64,8 @@ const LandingPage = () => {
         <div className="absolute top-[40%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-indigo-900/10 rounded-full blur-[100px]" />
       </div>
 
-      {/* Navbar Placeholder */}
-      <nav className="relative z-50 px-6 py-6 flex justify-between items-center max-w-7xl mx-auto">
+      {/* Navbar */}
+      <nav className="sticky top-0 z-50 px-6 py-4 flex justify-between items-center max-w-7xl mx-auto w-full backdrop-blur-md bg-background/70 border-b border-white/5 supports-[backdrop-filter]:bg-background/60">
         <div className="flex items-center gap-2">
           <div className="bg-gradient-to-br from-pink-500 to-purple-600 p-2 rounded-lg">
             <Flame className="w-6 h-6 text-white" fill="currentColor" />
@@ -73,9 +73,9 @@ const LandingPage = () => {
           <span className="text-2xl font-bold tracking-tight">Dindr</span>
         </div>
         <div className="hidden md:flex gap-8 text-sm font-medium text-muted-foreground">
-          <Link href="#" className="hover:text-foreground transition-colors">Features</Link>
-          <Link href="#" className="hover:text-foreground transition-colors">How it Works</Link>
-          <Link href="#" className="hover:text-foreground transition-colors">About</Link>
+          <a href="#features" className="hover:text-foreground transition-colors">Features</a>
+          <a href="#how-it-works" className="hover:text-foreground transition-colors">How it Works</a>
+          <a href="#about" className="hover:text-foreground transition-colors">About</a>
         </div>
         <div className="flex gap-4">
           <Link href="/auth/sign-in">
@@ -153,10 +153,10 @@ const LandingPage = () => {
       </main>
 
       {/* Features Section */}
-      <section className="relative z-10 py-32 px-6">
+      <section id="features" className="relative z-10 py-32 px-6 scroll-mt-28">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">How Dindr Works</h2>
+            <h2 id="how-it-works" className="text-3xl md:text-5xl font-bold mb-6 scroll-mt-28">How Dindr Works</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               We've revolutionized the way you choose what to eat. No more arguments, just delicious decisions.
             </p>
@@ -203,9 +203,9 @@ const LandingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 py-12 px-6 border-t border-white/5">
+      <footer id="about" className="relative z-10 py-12 px-6 border-t border-white/5 scroll-mt-28">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-muted-foreground text-sm">
-          <p>© 2024 Dindr. All rights reserved.</p>
+          <p>© 2025 Dindr. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
             <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>

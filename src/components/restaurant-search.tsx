@@ -53,11 +53,11 @@ export function RestaurantSearch({ onSearchStart, onSearchEnd }: RestaurantSearc
         (payload) => {
           console.log('Received real-time update:', payload);
           const newData = payload.new as any;
-          
+
           if (newData.matches?.length > 0) {
             const latestMatch = newData.matches[newData.matches.length - 1];
             console.log('Found match:', latestMatch);
-            
+
             // Only show match if it's not already shown
             if (!matchedRestaurant || matchedRestaurant.id !== latestMatch.id) {
               console.log('Showing match notification');
@@ -90,9 +90,9 @@ export function RestaurantSearch({ onSearchStart, onSearchEnd }: RestaurantSearc
       setIsLoading(true);
       onSearchStart?.();
       setError(null);
-      
+
       console.log('Searching with zipcode:', zipcode);
-      
+
       const response = await fetch('/api/restaurants/search', {
         method: 'POST',
         headers: {
@@ -105,7 +105,7 @@ export function RestaurantSearch({ onSearchStart, onSearchEnd }: RestaurantSearc
       });
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.error || 'Failed to search restaurants');
       }
@@ -152,7 +152,7 @@ export function RestaurantSearch({ onSearchStart, onSearchEnd }: RestaurantSearc
       });
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.error || 'Failed to update session');
       }
@@ -223,21 +223,21 @@ export function RestaurantSearch({ onSearchStart, onSearchEnd }: RestaurantSearc
         onMatchFound={setMatchedRestaurant}
       />
 
-      <Card className="p-4">
+      <Card className="p-4 bg-black/20 border-white/10">
         <div className="space-y-4">
           <div>
-            <label className="text-sm font-medium">Zipcode</label>
+            <label className="text-sm font-medium text-white">Zipcode</label>
             <Input
               type="text"
               placeholder="Enter your zipcode (e.g., 10001)"
               value={zipcode}
               onChange={(e) => setZipcode(e.target.value)}
-              className="mt-1"
+              className="mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-purple-500/50 focus:ring-purple-500/20"
             />
           </div>
 
           <div>
-            <label className="text-sm font-medium">Search Radius: {radius} miles</label>
+            <label className="text-sm font-medium text-white">Search Radius: {radius} miles</label>
             <Slider
               value={[radius]}
               onValueChange={(values: number[]) => setRadius(values[0])}
@@ -251,7 +251,7 @@ export function RestaurantSearch({ onSearchStart, onSearchEnd }: RestaurantSearc
           <Button
             onClick={handleSearch}
             disabled={isLoading}
-            className="w-full"
+            className="w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-semibold shadow-lg shadow-purple-500/25"
           >
             {isLoading ? (
               <>
@@ -269,20 +269,20 @@ export function RestaurantSearch({ onSearchStart, onSearchEnd }: RestaurantSearc
       </Card>
 
       {error && (
-        <div className="flex items-center gap-2 text-red-500 text-sm p-4 bg-red-50 rounded-md">
+        <div className="flex items-center gap-2 text-red-400 text-sm p-4 bg-red-900/20 border border-red-500/20 rounded-md">
           <AlertCircle className="h-4 w-4" />
           {error}
         </div>
       )}
 
       {matchedRestaurant ? (
-        <Card className="p-6 text-center">
-          <h2 className="text-2xl font-bold mb-4">It's a Match! 🎉</h2>
-          <p className="text-lg mb-2">{matchedRestaurant.name}</p>
-          <p className="text-gray-600">{matchedRestaurant.address}</p>
+        <Card className="p-6 text-center bg-black/20 border-white/10">
+          <h2 className="text-2xl font-bold mb-4 text-white">It's a Match! 🎉</h2>
+          <p className="text-lg mb-2 text-white">{matchedRestaurant.name}</p>
+          <p className="text-gray-400">{matchedRestaurant.address}</p>
           <Button
             onClick={handleStartNewSearch}
-            className="mt-4"
+            className="mt-4 bg-white text-purple-600 hover:bg-gray-100"
           >
             Start New Search
           </Button>
@@ -295,8 +295,8 @@ export function RestaurantSearch({ onSearchStart, onSearchEnd }: RestaurantSearc
         />
       ) : restaurants.length > 0 && currentIndex >= restaurants.length ? (
         <div className="text-center p-8">
-          <h3 className="text-xl font-semibold">No more restaurants</h3>
-          <p className="text-gray-500 mt-2">Try adjusting your search criteria</p>
+          <h3 className="text-xl font-semibold text-white">No more restaurants</h3>
+          <p className="text-gray-400 mt-2">Try adjusting your search criteria</p>
         </div>
       ) : null}
     </div>
