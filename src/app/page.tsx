@@ -28,7 +28,7 @@ const LandingPage = () => {
     {
       icon: <Clock className="w-8 h-8" />,
       title: "Quick Matches",
-      description: "Stop the endless scrolling. Get matched with your perfect meal in under 60 seconds.",
+      description: "Stop the endless scrolling. Get matched with your perfect meal in under 2 minutes.",
       color: "text-green-500"
     },
   ];

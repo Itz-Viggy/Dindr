@@ -3,9 +3,8 @@
 import { Restaurant } from '@/types/restaurant';
 import { Card } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
-import { ThumbsUp, ThumbsDown, MapPin, Star, DollarSign } from 'lucide-react';
+import { MapPin, Star, DollarSign } from 'lucide-react';
 import { motion, useMotionValue, useTransform, useAnimation, PanInfo } from 'framer-motion';
-import { useState } from 'react';
 
 interface RestaurantCardProps {
   restaurant: Restaurant;
@@ -116,27 +115,48 @@ export function RestaurantCard({ restaurant, onAccept, onReject }: RestaurantCar
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full w-14 h-14 flex items-center justify-center border-2 border-red-500/50 bg-red-500/10 hover:bg-red-500/20 text-red-500 hover:scale-110 transition-all duration-200"
+            className="rounded-full w-14 h-14 flex items-center justify-center border-2 border-red-500/50 bg-red-500/10 hover:bg-red-500/20 hover:scale-110 transition-all duration-200"
             onClick={(e) => {
               e.stopPropagation(); // Prevent drag interference
               onReject();
             }}
           >
-            <ThumbsDown className="h-6 w-6" />
+            <svg
+              className="h-8 w-8"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" className="stroke-red-500" />
+              <line x1="6" y1="6" x2="18" y2="18" className="stroke-red-500" />
+            </svg>
           </Button>
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full w-14 h-14 flex items-center justify-center border-2 border-green-500/50 bg-green-500/10 hover:bg-green-500/20 text-green-500 hover:scale-110 transition-all duration-200"
+            className="rounded-full w-14 h-14 flex items-center justify-center border-2 border-green-500/50 bg-green-500/10 hover:bg-green-500/20 hover:scale-110 transition-all duration-200"
             onClick={(e) => {
               e.stopPropagation(); // Prevent drag interference
               onAccept();
             }}
           >
-            <ThumbsUp className="h-6 w-6" />
+            <svg
+              className="h-8 w-8"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12" className="stroke-green-500" />
+            </svg>
           </Button>
         </div>
       </Card>
     </motion.div>
   );
-} 
+}
