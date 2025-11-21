@@ -289,6 +289,7 @@ export function RestaurantSearch({ onSearchStart, onSearchEnd }: RestaurantSearc
         </Card>
       ) : restaurants.length > 0 && currentIndex < restaurants.length ? (
         <RestaurantCard
+          key={restaurants[currentIndex].id}
           restaurant={restaurants[currentIndex]}
           onAccept={handleAccept}
           onReject={handleReject}
